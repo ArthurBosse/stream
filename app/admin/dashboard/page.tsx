@@ -6,13 +6,12 @@ import { Card } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase";
 import { DataTable } from "./data-table";
 import { columns, type PageView } from "./columns";
-
 interface MovieView {
   id: string;
   view_count: number;
   movies: {
     title: string;
-  } | null;
+  }[];  // Changé en tableau d'objets
 }
 
 export default function Dashboard() {
