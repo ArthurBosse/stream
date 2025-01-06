@@ -12,7 +12,7 @@ interface MovieView {
   view_count: number;
   movies: {
     title: string;
-  };
+  } | null;
 }
 
 export default function Dashboard() {
