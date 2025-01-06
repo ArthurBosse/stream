@@ -15,11 +15,24 @@ interface Props {
   params: { slug: string };
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const movie = await getMovieBySlug(params.slug);
+  if (!movie) return { title: "Film non trouvé" };
+
+  return {
+    title: `${movie.title} en Streaming Film Complet VF en HD`,
+    description: `Visionnez ${movie.title} en streaming sur Gratuit Streaming. Profitez du film complet en qualité HD 720p, Full HD 1080p, Ultra HD 4K ou 8K, gratuitement.`,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/film/${params.slug}`
+    }
+  };
+}
+
 export default async function MoviePage({ params }: Props) {
   const movie = await getMovieBySlug(params.slug);
   if (!movie) notFound();
 
-  const mainCategory = movie.genres[0];
+  const mainCategory = movie.genres?.[0] || 'Film';
   const embedUrl = movie.trailer_url ? getYoutubeEmbedUrl(movie.trailer_url) : '';
   const similarMovies = await getSimilarMovies(movie);
 
@@ -122,7 +135,7 @@ export default async function MoviePage({ params }: Props) {
 
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-2xl font-semibold mb-4">Synopsis</h2>
+                  <h2 className="text-2xl font-semibold mb-4">Synopsis {movie.title} en Streaming Film Complet VF en HD</h2>
                   <p className="text-lg text-white/80">{movie.overview}</p>
                   <MovieActionButtons movieTitle={movie.title} />
                 </div>

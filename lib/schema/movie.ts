@@ -1,5 +1,3 @@
-import { createMovieSlug } from '@/lib/utils/slug';
-
 export function generateMovieSchema(movie: any, category: string) {
   return {
     "@context": "https://schema.org",
@@ -10,10 +8,10 @@ export function generateMovieSchema(movie: any, category: string) {
     "datePublished": movie.release_date,
     "duration": `PT${movie.runtime}M`,
     "genre": movie.genres,
-    "actor": movie.cast.map((actor: { name: string }) => ({
+    "actor": movie.cast?.map((actor: { name: string }) => ({
       "@type": "Person",
       "name": actor.name
-    })),
+    })) || [],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": movie.vote_average,
@@ -38,6 +36,8 @@ export function generateMovieSchema(movie: any, category: string) {
 }
 
 export function generateBreadcrumbSchema(movie: any, category: string) {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || '';
+  
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -46,19 +46,19 @@ export function generateBreadcrumbSchema(movie: any, category: string) {
         "@type": "ListItem",
         "position": 1,
         "name": "Film Streaming",
-        "item": process.env.NEXT_PUBLIC_SITE_URL
+        "item": baseUrl
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": category,
-        "item": `${process.env.NEXT_PUBLIC_SITE_URL}/categorie/${category.toLowerCase()}`
+        "item": `${baseUrl}/categorie/${category?.toLowerCase() || ''}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": movie.title,
-        "item": `${process.env.NEXT_PUBLIC_SITE_URL}/film/${movie.id}-${createMovieSlug(movie.title)}`
+        "item": `${baseUrl}/film/${movie.id}-${movie.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-')}-streaming-gratuit`
       }
     ]
   };
