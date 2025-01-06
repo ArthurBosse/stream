@@ -1,17 +1,17 @@
 "use client";
-
 import { useState } from "react";
 import { Calendar } from "@/components/ui/calendar";
 import { Card } from "@/components/ui/card";
 import { supabase } from "@/lib/supabase";
 import { DataTable } from "./data-table";
 import { columns, type PageView } from "./columns";
+
 interface MovieView {
   id: string;
   view_count: number;
   movies: {
     title: string;
-  }[];  // Changé en tableau d'objets
+  }[];
 }
 
 export default function Dashboard() {
@@ -56,7 +56,6 @@ export default function Dashboard() {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Tableau de bord</h1>
-
       <div className="grid grid-cols-1 md:grid-cols-[300px,1fr] gap-8">
         <div className="space-y-6">
           <Card className="p-4">
@@ -70,7 +69,6 @@ export default function Dashboard() {
               }}
             />
           </Card>
-
           <Card className="p-4">
             <h2 className="font-semibold mb-4">Statistiques</h2>
             <div className="space-y-2">
@@ -78,19 +76,17 @@ export default function Dashboard() {
             </div>
           </Card>
         </div>
-
         <div className="space-y-6">
           <Card className="p-4">
             <h2 className="font-semibold mb-4">Visites détaillées</h2>
             <DataTable columns={columns} data={pageViews} />
           </Card>
-
           <Card className="p-4">
             <h2 className="font-semibold mb-4">Films les plus consultés</h2>
             <div className="space-y-2">
               {topMovies.map((movie) => (
                 <div key={movie.id} className="flex justify-between items-center">
-                  <span>{movie.movies?.title}</span>
+                  <span>{movie.movies[0]?.title}</span>
                   <span className="text-sm text-gray-500">{movie.view_count} vues</span>
                 </div>
               ))}
