@@ -15,7 +15,9 @@ export default function VideoPlayer({ movieTitle }: VideoPlayerProps) {
 
   const handlePlay = () => {
     if (videoRef.current) {
-      videoRef.current.play();
+      videoRef.current.play().catch(error => {
+        console.error("Erreur de lecture vidéo:", error);
+      });
       setIsPlaying(true);
       // Afficher la popup après quelques secondes
       setTimeout(() => {
@@ -42,6 +44,7 @@ export default function VideoPlayer({ movieTitle }: VideoPlayerProps) {
         <>
           <video ref={videoRef} className="w-full h-full">
             <source src="/preview.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la lecture de vidéos.
           </video>
           
           {showPopup && (
