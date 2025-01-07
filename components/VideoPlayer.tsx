@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Play } from "lucide-react";
 
 interface VideoPlayerProps {
@@ -10,23 +10,14 @@ interface VideoPlayerProps {
 export default function VideoPlayer({ movieTitle }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const streamingUrl = "https://cjewz.com/af?o=80c91bd01d642b96f2837a0f9febeb53:d63d7c5a6c5ff78c96114eac911fe497";
 
   const handlePlay = () => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error("Erreur de lecture vidéo:", error);
-      });
-      setIsPlaying(true);
-      // Afficher la popup après quelques secondes
-      setTimeout(() => {
-        setShowPopup(true);
-        if (videoRef.current) {
-          videoRef.current.pause();
-        }
-      }, 3000);
-    }
+    setIsPlaying(true);
+    // Afficher la popup après quelques secondes
+    setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
   };
 
   return (
@@ -42,13 +33,15 @@ export default function VideoPlayer({ movieTitle }: VideoPlayerProps) {
         </div>
       ) : (
         <>
-          <video ref={videoRef} className="w-full h-full">
-            <source src="/preview.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la lecture de vidéos.
-          </video>
+          <iframe
+            src="https://www.dailymotion.com/embed/video/xx1h83?autoplay=1"
+            className="w-full h-full"
+            allow="autoplay"
+            allowFullScreen
+          />
           
           {showPopup && (
-            <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-10">
               <div className="bg-white p-8 rounded-xl max-w-md text-center">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">
                   Vous devez créer un compte pour continuer à regarder
