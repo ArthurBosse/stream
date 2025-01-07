@@ -41,17 +41,17 @@ export default function VideoPlayer({ movieTitle }: VideoPlayerProps) {
           />
           
           {showPopup && (
-            <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-10">
-              <div className="bg-white p-8 rounded-xl max-w-md text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                  Vous devez créer un compte pour continuer à regarder
+            <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-10 p-4">
+              <div className="bg-white p-4 sm:p-8 rounded-xl w-full max-w-sm sm:max-w-md text-center">
+                <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-2">
+                  Vous devez créer un compte pour continuer à regarder {movieTitle}
                 </h3>
-                <p className="text-gray-600 mb-6">(Activez votre compte GRATUIT !)</p>
+                <p className="text-gray-600 mb-6">Activez votre compte GRATUITEMENT</p>
                 <a
                   href={streamingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block bg-[#82e295] hover:bg-[#6bc77d] text-white font-bold px-8 py-3 rounded-lg transition-colors"
+                  className="inline-block bg-[#82e295] hover:bg-[#6bc77d] text-white font-bold px-6 sm:px-8 py-3 rounded-lg transition-colors text-sm sm:text-base"
                 >
                   Inscrivez-vous Gratuitement
                 </a>
