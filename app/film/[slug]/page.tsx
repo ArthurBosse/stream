@@ -178,7 +178,12 @@ export default async function MoviePage({ params }: Props) {
                     Voir {movie.title} en Streaming Film Complet VF en HD
                   </h2>
                   <VideoPlayer movieTitle={movie.title} />
-                  <script async="async" data-cfasync="false" src="//pl25594625.profitablecpmrate.com/4a775c4dd65d9706a11c40d7f6c6e7cb/invoke.js"></script>
+                  <Script
+                    src="//pl25594625.profitablecpmrate.com/4a775c4dd65d9706a11c40d7f6c6e7cb/invoke.js"
+                    strategy="afterInteractive"
+                    data-cfasync="false"
+                    async
+                  />
                   <div id="container-4a775c4dd65d9706a11c40d7f6c6e7cb"></div>
                 </div>
 

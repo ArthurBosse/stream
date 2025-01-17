@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
@@ -40,7 +41,10 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
-        <script type='text/javascript' src='//pl25594665.profitablecpmrate.com/69/d1/5b/69d15b8d926a631c012951646752ba58.js'></script>
+        <Script
+          src="//pl25594665.profitablecpmrate.com/69/d1/5b/69d15b8d926a631c012951646752ba58.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
