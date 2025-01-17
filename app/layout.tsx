@@ -33,7 +33,6 @@ export default function RootLayout({
         <link rel="icon" href="/application-de-television-en-streaming.ico" sizes="any" />
       </head>
       <body className={`${inter.className} bg-gradient-to-b from-black to-gray-900 min-h-screen text-white`}>
-      <script type='text/javascript' src='//pl25594665.profitablecpmrate.com/69/d1/5b/69d15b8d926a631c012951646752ba58.js'></script>
         <GoogleAnalytics />
         <TelegramBanner />
         <Header />
@@ -41,6 +40,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <script type='text/javascript' src='//pl25594665.profitablecpmrate.com/69/d1/5b/69d15b8d926a631c012951646752ba58.js'></script>
       </body>
     </html>
   );
