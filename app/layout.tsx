@@ -32,7 +32,6 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="icon" href="/application-de-television-en-streaming.ico" sizes="any" />
-
       </head>
       <body className={`${inter.className} bg-gradient-to-b from-black to-gray-900 min-h-screen text-white`}>
         <GoogleAnalytics />
