@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="fr">
       <head>
         <link rel="icon" href="/application-de-television-en-streaming.ico" sizes="any" />
-<!-- Yandex.Metrika counter -->
+
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();
@@ -48,7 +48,6 @@ export default function RootLayout({
    });
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/99747832" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
       </head>
       <body className={`${inter.className} bg-gradient-to-b from-black to-gray-900 min-h-screen text-white`}>
         <GoogleAnalytics />
