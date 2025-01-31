@@ -4,7 +4,7 @@ const nextConfig = {
     domains: ['image.tmdb.org'],
   },
   env: {
-    NEXT_PUBLIC_SITE_URL: 'https://gratuit-streaming.fr'
+    NEXT_PUBLIC_SITE_URL: 'https://film-gratuit-streaming.fr'
   }
 };
 

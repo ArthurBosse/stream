@@ -10,7 +10,7 @@ type SitemapEntry = {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gratuit-streaming.fr'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://film-gratuit-streaming.fr'
 
   // Récupérer tous les films
   const { data: movies } = await supabase

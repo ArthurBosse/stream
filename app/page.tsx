@@ -12,7 +12,7 @@ interface Props {
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
   const currentPage = Number(searchParams.page) || 1;
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gratuit-streaming.fr';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://film-gratuit-streaming.fr';
   
   return {
     title: 'Gratuit Streaming - Voir tous les films en streaming gratuitement',
@@ -56,10 +56,10 @@ export default async function Home({ searchParams }: Props) {
   return (
     <main className="container mx-auto px-4 py-8">
       <section>
-        <h1 className="text-4xl font-bold mb-4">Film streaming gratuit : trouvez tous les films en streaming sur Gratuit-Streaming.fr - Test</h1>
+        <h1 className="text-4xl font-bold mb-4">Film streaming gratuit : trouvez tous les films en streaming sur film-gratuit-streaming.fr - Test</h1>
         
         <p className="text-lg text-white/80 mb-8">
-          Bienvenue sur <strong>Gratuit-Streaming.fr</strong>, votre destination ultime pour découvrir et profiter de <strong>films en streaming gratuitement</strong> !
+          Bienvenue sur <strong>film-gratuit-streaming.fr</strong>, votre destination ultime pour découvrir et profiter de <strong>films en streaming gratuitement</strong> !
         </p>
 
         <MovieCount />
